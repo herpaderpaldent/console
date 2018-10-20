@@ -38,6 +38,7 @@ use Seat\Console\Commands\Seat\Admin\Login;
 use Seat\Console\Commands\Seat\Admin\Maintenance;
 use Seat\Console\Commands\Seat\Cache\Clear;
 use Seat\Console\Commands\Seat\Queue\Status;
+use Seat\Console\Commands\Seat\Test\CharacterAssetsSeeder;
 use Seat\Console\Commands\Seat\Version;
 
 class ConsoleServiceProvider extends ServiceProvider
@@ -50,6 +51,7 @@ class ConsoleServiceProvider extends ServiceProvider
     public function boot()
     {
 
+        $this->app->make('Illuminate\Database\Eloquent\Factory')->load(__DIR__ . '/Factories');
         $this->addCommands();
     }
 
@@ -68,6 +70,7 @@ class ConsoleServiceProvider extends ServiceProvider
 
             // Dev
             EsiJobMakeCommand::class,
+            CharacterAssetsSeeder::class,
 
             // Esi
             Ping::class,
