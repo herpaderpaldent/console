@@ -41,11 +41,15 @@ class CharacterAssetsSeeder extends Command
             factory(CharacterAsset::class, (int) $number)->create([
                 'character_id' => $character_id
             ]);
+
+            factory(CharacterAsset::class, (int) $number)->create([
+                'character_id' => $character_id,
+                'location_id' => 2004,
+                'location_type' => "other",
+                'location_flag' => "AssetSafety"
+            ]);
         }
 
-        /*factory(CharacterAsset::class,20)->create([
-            'character_id' => '95725047'
-        ]);*/
 
     }
 
