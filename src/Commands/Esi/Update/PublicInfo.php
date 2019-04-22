@@ -3,7 +3,7 @@
 /*
  * This file is part of SeAT
  *
- * Copyright (C) 2015, 2016, 2017, 2018  Leon Jacobs
+ * Copyright (C) 2015, 2016, 2017, 2018, 2019  Leon Jacobs
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,8 @@ use Illuminate\Console\Command;
 use Seat\Eveapi\Jobs\Alliances\Alliances;
 use Seat\Eveapi\Jobs\Alliances\Members;
 use Seat\Eveapi\Jobs\Character\Affiliation;
+use Seat\Eveapi\Jobs\Character\PublicCorporationHistory;
+use Seat\Eveapi\Jobs\Character\PublicInfo as PublicInfoJob;
 use Seat\Eveapi\Jobs\Market\Prices;
 use Seat\Eveapi\Jobs\Sovereignty\Map;
 use Seat\Eveapi\Jobs\Sovereignty\Structures;
@@ -63,5 +65,7 @@ class PublicInfo extends Command
         Affiliation::withChain([new Names])->dispatch();
         Alliances::withChain([new Members])->dispatch();
         Prices::dispatch();
+        PublicCorporationHistory::dispatch();
+        PublicInfoJob::dispatch();
     }
 }
