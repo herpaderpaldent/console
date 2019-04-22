@@ -15,11 +15,21 @@
   },
   "minimum-stability": "alpha",
   "prefer-stable": true,
+  "repositories" : [
+    {
+      "type": "vcs",
+      "url": "https://github.com/herpaderpaldent/eveapi"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/herpaderpaldent/services"
+    }
+  ],
   "require": {
     "php": ">=7.1",
     "laravel/framework": "5.5.*",
-    "herpaderpaldent/eveapi": "dev-master",
-    "herpaderpaldent/services": "dev-master",
+    "eveseat/eveapi": "dev-master",
+    "eveseat/services": "dev-master",
     "guzzlehttp/guzzle": "^6.3"
   },
   "extra": {
